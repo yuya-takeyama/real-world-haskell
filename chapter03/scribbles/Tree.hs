@@ -20,3 +20,9 @@ insert (Node x left right) y | y < x     = Node x (left `insert` y) right
 
 -- Try following on your GHCi
 -- (Node 5 Empty Empty) `insert` 3 `insert` 6 `insert` 4 `insert` 2 `insert` 10
+
+toList Empty               = []
+toList (Node a left right) = toList left ++ [a] ++ toList right
+
+toListR Empty = []
+toListR (Node a left right) = toListR right ++ [a] ++ toListR left
