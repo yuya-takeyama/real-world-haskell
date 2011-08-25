@@ -1,5 +1,5 @@
 module Main where
-    mean xs = sum' (xs) `div` fromIntegral (length' (xs))
+    mean xs = sum' (xs) / fromIntegral (length' (xs))
 
     sum' :: (Num a) => [a] -> a
     sum'     [] = 0
