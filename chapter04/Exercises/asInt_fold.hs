@@ -1,6 +1,9 @@
 import Data.Char (digitToInt)
 
 asInt_fold :: [Char] -> Int
-asInt_fold xs = foldl f 0 xs
+asInt_fold (x:xs) | x == '-'  = negate (asInt' xs)
+                  | otherwise = asInt' (x:xs)
   where
-    f x y = x * 10 + digitToInt y
+    asInt' xs = foldl f 0 xs
+      where
+        f x y = x * 10 + digitToInt y
