@@ -8,3 +8,5 @@ module List where
 
     toList Nil          = []
     toList (Cons a b)   = a : (toList b)
+
+    cons x xs = Cons x xs
