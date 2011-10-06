@@ -8,4 +8,5 @@ asInt_fold (x:xs) | x == '-'  = negate (asInt' xs)
     asInt' "" = error "Invalid format"
     asInt' xs = foldl f 0 xs
       where
-        f x y = x * 10 + digitToInt y
+        f x y | '0' <= y && y <= '9' = x * 10 + digitToInt y
+              | otherwise            = error ("Invalid character: " ++ [y])
